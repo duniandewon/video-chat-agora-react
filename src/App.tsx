@@ -17,7 +17,7 @@ function App() {
         <Route path="/" element={<PagesLayout />}>
           <Route index element={<HomePage />} />
         </Route>
-        <Route path="/Inconf" element={<InconfPage />} />
+        <Route path="/inconf" element={<InconfPage />} />
       </Routes>
     </Fragment>
   );
