@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 const InconfHeader = () => {
   return (
     <Box
+      component="header"
       sx={{
         width: "100%",
         py: 1,
