@@ -1,5 +1,3 @@
-import { Fragment } from "react";
-
 import { Routes, Route } from "react-router-dom";
 
 import CssBaseline from "@mui/material/CssBaseline";
@@ -9,9 +7,11 @@ import InconfPage from "./pages/InconfPage";
 
 import PagesLayout from "./components/PagesLayout";
 
+import { UiProvider } from "./context";
+
 function App() {
   return (
-    <Fragment>
+    <UiProvider>
       <CssBaseline />
       <Routes>
         <Route path="/" element={<PagesLayout />}>
@@ -19,7 +19,7 @@ function App() {
         </Route>
         <Route path="/inconf" element={<InconfPage />} />
       </Routes>
-    </Fragment>
+    </UiProvider>
   );
 }
 
