@@ -4,6 +4,9 @@ import Controls from "./Controls";
 import InconfHeader from "./InconfHeader";
 import VideosContainer from "./VideosContainer";
 
+import ChatPanel from "../../components/ChatPanel";
+import ParticipantsPanel from "../../components/ParticipantsPanel";
+
 const Inconf = () => {
   return (
     <Box
@@ -19,6 +22,8 @@ const Inconf = () => {
     >
       <InconfHeader />
       <VideosContainer />
+      <ChatPanel />
+      <ParticipantsPanel />
       <Controls />
     </Box>
   );

@@ -3,15 +3,15 @@ import { ReactNode } from "react";
 import Drawer from "@mui/material/Drawer";
 
 interface Props {
-  children: ReactNode;
+  children?: ReactNode;
   open: boolean;
   width: number;
 }
-const Pannel = ({ children, open, width }: Props) => {
+const Panel = ({ children, open, width }: Props) => {
   return (
     <Drawer
       variant="persistent"
-      anchor="left"
+      anchor="right"
       open={open}
       sx={{
         width: width,
@@ -27,4 +27,4 @@ const Pannel = ({ children, open, width }: Props) => {
   );
 };
 
-export default Pannel;
+export default Panel;

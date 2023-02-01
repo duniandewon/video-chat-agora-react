@@ -8,6 +8,7 @@ import {
 } from "react";
 
 interface IUiContext {
+  pannelWidth: number;
   isChatPanelOpen: boolean;
   isParticipantsPanelOpen: boolean;
 }
@@ -22,14 +23,20 @@ export const UiContext = createContext<{
 } | null>(null);
 
 const reducer = (state: IUiContext, action: ACTIONTYPE) => {
+  const newState = {};
   switch (action.type) {
     case "toggleChatPanel":
-      return { ...state, isChatPannelOpen: !state.isChatPanelOpen };
+      return {
+        ...state,
+        isChatPanelOpen: !state.isChatPanelOpen,
+        isParticipantsPanelOpen: false,
+      };
 
     case "toggleParticipantsPanel":
       return {
         ...state,
-        isParticipantsPannelOpen: !state.isParticipantsPanelOpen,
+        isChatPanelOpen: false,
+        isParticipantsPanelOpen: !state.isParticipantsPanelOpen,
       };
 
     default:
@@ -41,6 +48,7 @@ const UiProvider = ({ children }: { children: ReactNode }) => {
   const InitialState = {
     isChatPanelOpen: false,
     isParticipantsPanelOpen: false,
+    pannelWidth: 400,
   };
 
   const [state, dispatch] = useReducer(reducer, InitialState);
