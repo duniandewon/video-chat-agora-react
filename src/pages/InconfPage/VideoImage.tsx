@@ -8,6 +8,7 @@ const VideoImage = () => {
         minWidth: 500,
         height: 250,
         mx: "auto",
+        borderRadius: 3
       }}
     ></Box>
   );

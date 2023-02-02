@@ -1,4 +1,5 @@
 import { ChangeEvent, SyntheticEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -8,6 +9,8 @@ import TextField from "../../components/TextField";
 const HomePage = () => {
   const [roomName, setRoomName] = useState("");
   const [name, setName] = useState("");
+
+  const navigate = useNavigate();
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -30,7 +33,9 @@ const HomePage = () => {
 
   const onSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    alert(`Name: ${name}\nRoomName: ${roomName}`);
+    if (!roomName) return;
+
+    navigate(`/inconf?roomName=${roomName}`);
     resetForm();
   };
 
