@@ -10,6 +10,8 @@ import MicIcon from "@mui/icons-material/Mic";
 import ChatIcon from "@mui/icons-material/Chat";
 import GroupsIcon from "@mui/icons-material/Groups";
 
+import { useNavigate } from "react-router-dom";
+
 import {
   useUiContext,
   toggleChatPanel,
@@ -19,6 +21,8 @@ import {
 const Controls = () => {
   const { state, dispatch } = useUiContext();
   const { pannelWidth, isChatPanelOpen, isParticipantsPanelOpen } = state;
+
+  const navigate = useNavigate();
 
   const isPannelOpen = useMemo(
     () => isChatPanelOpen || isParticipantsPanelOpen,
@@ -49,10 +53,13 @@ const Controls = () => {
       <Button variant="contained" onClick={() => toggleChatPanel(dispatch)}>
         <ChatIcon />
       </Button>
-      <Button variant="contained" onClick={() => toggleParticipantsPanel(dispatch)}>
+      <Button
+        variant="contained"
+        onClick={() => toggleParticipantsPanel(dispatch)}
+      >
         <GroupsIcon />
       </Button>
-      <Button variant="contained" color="error">
+      <Button variant="contained" color="error" onClick={() => navigate("/")}>
         <LogoutIcon />
       </Button>
     </Box>
